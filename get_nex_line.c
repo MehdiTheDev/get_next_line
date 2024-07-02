@@ -6,7 +6,7 @@
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/02 15:42:24 by elabiad          ###   ########.fr       */
+/*   Updated: 2024/07/02 17:31:04 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*get_next_line(int fd)
 {
+	fd = open("text.txt", O_RDONLY);
 	
 }
 
