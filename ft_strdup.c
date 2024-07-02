@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nex_line.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/02 15:42:24 by elabiad          ###   ########.fr       */
+/*   Created: 2024/07/02 15:50:33 by elabiad           #+#    #+#             */
+/*   Updated: 2024/07/02 16:28:43 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*ft_strdup(const char *s1)
 {
+	char *dest;
+	int	i;
 	
-}
-
-int	main()
-{
-	int		fd;
-	char	*line;
-	
-	fd = open("text.txt", O_RDONLY);
-	while (1)
+	dest = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!dest)
+		return (NULL);
+	while (s1[i])
 	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		printf("%s\n", line);
-		free(line);
+		dest[i] = s1[i];
+		i++;
 	}
-	return (0);
+	dest[i] = 0;
+	return (dest);
 }

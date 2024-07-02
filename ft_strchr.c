@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nex_line.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/02 15:42:24 by elabiad          ###   ########.fr       */
+/*   Created: 2024/07/02 15:50:33 by elabiad           #+#    #+#             */
+/*   Updated: 2024/07/02 16:28:56 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*ft_strchr(const char *s, int c)
 {
+	unsigned int		i;
+	char	cc;
 	
-}
-
-int	main()
-{
-	int		fd;
-	char	*line;
-	
-	fd = open("text.txt", O_RDONLY);
-	while (1)
+	i = 0;
+	cc = (char) c;
+	while (s[i])
 	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		printf("%s\n", line);
-		free(line);
+		if (s[i] == cc)
+			return ((char *) &s[i]);
+		i++;
 	}
-	return (0);
+	if (s[i] == cc)
+		return ((char *) &s[i]);
+	return (NULL);
 }

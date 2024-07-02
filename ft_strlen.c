@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nex_line.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/02 15:42:24 by elabiad          ###   ########.fr       */
+/*   Created: 2024/07/02 15:50:33 by elabiad           #+#    #+#             */
+/*   Updated: 2024/07/02 16:28:13 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+size_t	ft_strlen(const char *s)
 {
-	
-}
+	size_t	i;
 
-int	main()
-{
-	int		fd;
-	char	*line;
-	
-	fd = open("text.txt", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		printf("%s\n", line);
-		free(line);
-	}
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
