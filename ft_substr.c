@@ -6,7 +6,7 @@
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:50:33 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/02 16:34:56 by elabiad          ###   ########.fr       */
+/*   Updated: 2024/07/16 10:48:23 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char *ft_substr(const char *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start > ft_strlen(s))
-		return (strdu(""));
+		return (ft_strdup(""));
 	if (len > ft_strlen(s + start))
 		len = ft_strlen(s + start);
 	str = ft_calloc(len + 1, sizeof(char));
@@ -46,5 +46,5 @@ char *ft_substr(const char *s, unsigned int start, size_t len)
 		str[i] = s[start + i];
 		i++;
 	}
-	retur (str);
+	return (str);
 }
