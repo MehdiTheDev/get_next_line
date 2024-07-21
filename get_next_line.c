@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nex_line.c                                     :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/20 00:29:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/21 17:15:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ static char	*filling_stash(int fd, char *buffer, int bytes_read, char *stash)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-		{
-			free(buffer);
 			return NULL;
-		}
 		buffer[bytes_read] = '\0';
 		if (stash == NULL)
 			stash = ft_strdup("");
@@ -55,7 +52,7 @@ char	*filling_line(char *stash, char **new_stash)
 	char	*line;
 	int	f;
 	
-	line = malloc(sizeof(char) * (ft_strlen(stash) + 1));
+	line = malloc(sizeof(char) * (ft_strlen(stash) + 2));
 	if (line == NULL)
 		return NULL;
 	f = 0;
@@ -85,23 +82,31 @@ char	*get_next_line(int fd)
 		return NULL;
 	bytes_read = 1;
 	stash = filling_stash(fd, buffer, bytes_read, stash);
-	if (stash == NULL)
-		return NULL;
-	line = filling_line(stash, &stash);	
 	free(buffer);
+	if (stash == NULL || *stash == '\0')
+	{
+		free(stash);
+		stash = NULL;
+		return NULL;
+	}
+	line = filling_line(stash, &stash);	
 	return(line);
 }
 
-int	main()
-{
-	int		fd;
-	
-	fd = open("text.txt", O_RDONLY);
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd));
-	printf("%c", '\n');
-	return (0);
-}
+// int main(int argc, char **argv) {
+//     int fd;
+//     char *line;
+
+//     if (argc != 2)
+//         return (1);
+//     fd = open(argv[1], O_RDONLY);
+//     if (fd == -1)
+//         return (1);
+    
+//     while ((line = get_next_line(fd)) != NULL) {
+//         printf("%s", line);
+//         free(line);
+//     }
+//     close(fd);
+//     return (0);
+// }
