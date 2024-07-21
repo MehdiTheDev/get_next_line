@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/21 17:15:43 by marvin           ###   ########.fr       */
+/*   Updated: 2024/07/21 22:48:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*get_next_line(int fd)
 		stash = NULL;
 		return NULL;
 	}
-	line = filling_line(stash, &stash);	
+	line = filling_line(stash, &stash);
 	return(line);
 }
 
@@ -108,5 +108,6 @@ char	*get_next_line(int fd)
 //         free(line);
 //     }
 //     close(fd);
+// 	printf("\n");
 //     return (0);
 // }
