@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elabiad <elabiad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 09:53:32 by elabiad           #+#    #+#             */
-/*   Updated: 2024/07/22 17:42:10 by elabiad          ###   ########.fr       */
+/*   Updated: 2024/07/22 17:55:40 by elabiad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,20 +95,20 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main(int argc, char **argv) {
-//     int fd;
-//     char *line;
+ int main(int argc, char **argv) {
+     int fd;
+     char *line;
 
-//     if (argc != 2)
-//         return (1);
-//     fd = open(argv[1], O_RDONLY);
-//     if (fd == -1)
-//         return (1);
-//     while ((line = get_next_line(fd)) != NULL) {
-//         printf("%s", line);
-//         free(line);
-//     }
-//     close(fd);
-// 	printf("\n");
-//     return (0);
-// }
+     if (argc != 2)
+         return (1);
+     fd = open(argv[1], O_RDONLY);
+     if (fd == -1)
+         return (1);
+     while ((line = get_next_line(fd)) != NULL) {
+         printf("%s", line);
+         free(line);
+     }
+     close(fd);
+ 	printf("\n");
+     return (0);
+ }
